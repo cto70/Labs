@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/yarov/CLionProjects/Lab4/CharString.h
+
+C:/Users/yarov/CLionProjects/Lab4/main.cpp
+iostream
+-
+CharString.h
+C:/Users/yarov/CLionProjects/Lab4/CharString.h
+map
+-
+vector
+-
+
