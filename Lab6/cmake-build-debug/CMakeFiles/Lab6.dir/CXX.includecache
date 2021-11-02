@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/yarov/CLionProjects/Lab6/CorrectFraction.cpp
+CorrectFraction.h
+C:/Users/yarov/CLionProjects/Lab6/CorrectFraction.h
+
+C:/Users/yarov/CLionProjects/Lab6/CorrectFraction.h
+iostream
+-
+exception
+-
+cmath
+-
+string
+-
+vector
+-
+
