@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/yarov/CLionProjects/GoogleTest/func.cpp
+func.h
+C:/Users/yarov/CLionProjects/GoogleTest/func.h
+
+C:/Users/yarov/CLionProjects/GoogleTest/func.h
+
+C:/Users/yarov/CLionProjects/GoogleTest/main.cpp
+iostream
+-
+
