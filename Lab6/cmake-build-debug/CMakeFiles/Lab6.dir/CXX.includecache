@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/yarov/CLionProjects/Lab6/CorrectFraction.cpp
-CorrectFraction.h
-C:/Users/yarov/CLionProjects/Lab6/CorrectFraction.h
-
 C:/Users/yarov/CLionProjects/Lab6/CorrectFraction.h
 iostream
 -
@@ -21,4 +17,10 @@ string
 -
 vector
 -
+
+C:/Users/yarov/CLionProjects/Lab6/main.cpp
+iostream
+-
+CorrectFraction.h
+C:/Users/yarov/CLionProjects/Lab6/CorrectFraction.h
 

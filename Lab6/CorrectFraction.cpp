@@ -2,10 +2,10 @@
 CorrectFraction :: CorrectFraction()
 {
 }
-long long CorrectFraction :: GCD( const long long numerator, const long long denominator )
+long long CorrectFraction :: GCD( const long long num, const long long den )
 {
-    long long numerator_ = abs( numerator );
-    long long denominator_ = abs( denominator );
+    long long numerator_ = abs( num );
+    long long denominator_ = abs( den );
     if( numerator_ == 0 )
     {
         return denominator_;
@@ -49,6 +49,9 @@ string CorrectFraction :: IntToString( long long a )
 }
 void CorrectFraction :: StandartView()
 {
+    long long reminder = GCD( this -> numerator, this -> denominator );
+    this -> numerator /= reminder;
+    this -> denominator /= reminder;
     if( this -> numerator == 0 )
     {
         this -> denominator = 1;
@@ -59,21 +62,18 @@ void CorrectFraction :: StandartView()
         this -> denominator *= -1;
     }
 }
-void CorrectFraction :: assign( long long  numerator, long long denominator )
+void CorrectFraction :: assign( long long  numerator_, long long denominator_ )
 {
-    this -> numerator = numerator;
-    this -> denominator = denominator;
+    this -> numerator = numerator_;
+    this -> denominator = denominator_;
 }
-CorrectFraction :: CorrectFraction( const long long numerator, const long long denominator )
+CorrectFraction :: CorrectFraction( const long long numerator_, const long long denominator_ )
 {
-    if( denominator == 0 )
+    if( denominator_ == 0 )
     {
         throw "Exception";
     }
-    assign( numerator, denominator );
-    long long reminder = GCD( this -> numerator, this -> denominator );
-    this -> numerator /= reminder;
-    this -> denominator /= reminder;
+    assign( numerator_, denominator_ );
     StandartView();
 }
 CorrectFraction :: CorrectFraction( const CorrectFraction& CorrectFraction )
@@ -82,16 +82,16 @@ CorrectFraction :: CorrectFraction( const CorrectFraction& CorrectFraction )
 }
 CorrectFraction CorrectFraction :: SUM( CorrectFraction a, CorrectFraction b )
 {
-    long long numerator = a.numerator * b.denominator + b.numerator * a.denominator;
-    long long denominator = a.denominator * b.denominator;
-    CorrectFraction c( numerator, denominator );
+    long long numerator_ = a.numerator * b.denominator + b.numerator * a.denominator;
+    long long denominator_ = a.denominator * b.denominator;
+    CorrectFraction c( numerator_, denominator_ );
     return c;
 }
 CorrectFraction CorrectFraction :: MULTIPLY( CorrectFraction a, CorrectFraction b )
 {
-    long long numerator = a.numerator * b.numerator;
-    long long denominator = a.denominator * b.denominator;
-    CorrectFraction c( numerator, denominator );
+    long long numerator_ = a.numerator * b.numerator;
+    long long denominator_ = a.denominator * b.denominator;
+    CorrectFraction c( numerator_, denominator_ );
     return c;
 }
 CorrectFraction CorrectFraction :: DIVIDE( CorrectFraction a, CorrectFraction b )
@@ -100,24 +100,24 @@ CorrectFraction CorrectFraction :: DIVIDE( CorrectFraction a, CorrectFraction b 
     {
         throw "Exception";
     }
-    long long numerator = a.numerator * b.denominator;
-    long long denominator = b.numerator * a.denominator;
-    CorrectFraction c( numerator, denominator );
+    long long numerator_ = a.numerator * b.denominator;
+    long long denominator_ = b.numerator * a.denominator;
+    CorrectFraction c( numerator_, denominator_ );
     return c;
 }
 void CorrectFraction :: SUM( CorrectFraction a )
 {
-    long long numerator = this -> numerator * a.denominator + a.numerator * this -> denominator;
-    long long denominator = this -> denominator * a.denominator;
-    this -> numerator = numerator;
-    this -> denominator = denominator;
+    long long numerator_ = this -> numerator * a.denominator + a.numerator * this -> denominator;
+    long long denominator_ = this -> denominator * a.denominator;
+    assign( numerator_, denominator_);
+    StandartView();
 }
 void CorrectFraction :: MULTIPLY( CorrectFraction a )
 {
-    long long numerator = this -> numerator * a.numerator;
-    long long  denominator = this -> denominator * a.denominator;
-    this -> numerator = numerator;
-    this -> denominator = denominator;
+    long long numerator_ = this -> numerator * a.numerator;
+    long long  denominator_ = this -> denominator * a.denominator;
+    assign( numerator_, denominator_);
+    StandartView();
 }
 void CorrectFraction :: DIVIDE( CorrectFraction a )
 {
@@ -125,9 +125,10 @@ void CorrectFraction :: DIVIDE( CorrectFraction a )
     {
         throw "Exception";
     }
-    long long numerator = this -> numerator * a.denominator;
-    long long denominator = a.numerator * this -> denominator;
-    assign( numerator, denominator );
+    long long numerator_ = this -> numerator * a.denominator;
+    long long denominator_ = a.numerator * this -> denominator;
+    assign( numerator_, denominator_ );
+    StandartView();
 }
 long long CorrectFraction :: getNumerator()
 {

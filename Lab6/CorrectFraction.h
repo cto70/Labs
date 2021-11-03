@@ -21,9 +21,9 @@ private:
     long long GCD( const long long numerator, const long long denominator );
     string IntToString( long long a );
     void StandartView();
-    void assign( long long  numerator, long long denominator );
+    void assign( long long  numerator_, long long denominator_ );
 public:
-    CorrectFraction( const long long numerator, const long long denominator );
+    CorrectFraction( const long long numerator_, const long long denominator_ );
     CorrectFraction( const CorrectFraction& CorrectFraction );
 public:
     static CorrectFraction SUM( CorrectFraction a, CorrectFraction b );
