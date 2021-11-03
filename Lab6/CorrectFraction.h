@@ -18,7 +18,7 @@ private:
 private:
     CorrectFraction();
 private:
-    long long GCD( const long long numerator, const long long denominator );
+    long long GCD( const long long num, const long long den );
     string IntToString( long long a );
     void StandartView();
     void assign( long long  numerator_, long long denominator_ );
