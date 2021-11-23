@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/yarov/CLionProjects/Lab7/Student.cpp
-Student.h
-C:/Users/yarov/CLionProjects/Lab7/Student.h
-
 C:/Users/yarov/CLionProjects/Lab7/Student.h
 iostream
 -
@@ -23,10 +19,6 @@ vector
 -
 string
 -
-
-C:/Users/yarov/CLionProjects/Lab7/StudentAfterFirstExaminationSeason.cpp
-StudentAfterFirstExaminationSeason.h
-C:/Users/yarov/CLionProjects/Lab7/StudentAfterFirstExaminationSeason.h
 
 C:/Users/yarov/CLionProjects/Lab7/StudentAfterFirstExaminationSeason.h
 Student.h
@@ -42,6 +34,10 @@ C:/Users/yarov/CLionProjects/Lab7/StudentAfterFirstExaminationSeason.h
 
 C:/Users/yarov/CLionProjects/Lab7/main.cpp
 iostream
+-
+cstring
+-
+string
 -
 Student.h
 C:/Users/yarov/CLionProjects/Lab7/Student.h

@@ -13,21 +13,31 @@ protected:
 protected:
     StudentAfterFirstExaminationSeason();
 
+public:
+    StudentAfterFirstExaminationSeason(string name_, int course_, int group_,
+                                       const initializer_list<int> &first_examination_season_marks_);
+
+    StudentAfterFirstExaminationSeason(const StudentAfterFirstExaminationSeason &student_);
+
+protected:
     void CreateNewStudentAfterFirstExaminationSeason(StudentAfterFirstExaminationSeason *student_);
 
     StudentAfterFirstExaminationSeason *FindStudent(long long id_);
 
 public:
-    StudentAfterFirstExaminationSeason(int course_, int group_,
-                                       const initializer_list<int> &first_examination_season_marks_);
-
     vector<int> GetFirstExaminationSeasonMarks() const;
 
-    StudentAfterFirstExaminationSeason(const StudentAfterFirstExaminationSeason &student_);
-
+public:
     virtual double AllMarksArithmeticMean() const;
 
+    static double GetAllStudentsMarksArithmeticMeanAfterFirstExamenationSeason();
+
+    static double GetGroupMarksArithmeticMeanAfterFirstExamenationSeason(int group);
+
     static long long NumberOfAllStudentsAfterFirstExaminationSeason();
+
+public:
+    virtual void SetName(string name_);
 
     virtual void SetCourse(int course_);
 
@@ -35,7 +45,14 @@ public:
 
     virtual void SetFirstExaminationSeasonMarks(vector<int> marks_);
 
+public:
     static vector<StudentAfterFirstExaminationSeason *> GetAllStudentAfterFirstExaminationSeason();
-    static double GetAllStudentsMarksArithmeticMeanAfterFirstExamenationSeason();
-    static double GetGroupMarksArithmeticMeanAfterFirstExamenationSeason(int group);
+
+public:
+    virtual string to_string() const;
+
+    friend std::ostream &operator<<(std::ostream &os, const StudentAfterFirstExaminationSeason &st) {
+        os << st.to_string();
+        return os;
+    }
 };

@@ -55,7 +55,8 @@ void Student::CreateNewStudent(Student *student_) {
     Student::AllStudents.push_back(student_);
 }
 
-Student::Student(int course_, int group_) {
+Student::Student(string name_, int course_, int group_) {
+    name = name_;
     course = course_;
     group = group_;
     long long id_ = GenerateID();
@@ -66,6 +67,7 @@ Student::Student(int course_, int group_) {
 }
 
 Student::Student(const Student &student_) {
+    name = student_.GetName();
     course = student_.GetCourse();
     group = student_.GetGroup();
     id = GenerateID();
@@ -75,6 +77,10 @@ Student::Student(const Student &student_) {
 
 int Student::GetCourse() const {
     return course;
+}
+
+string Student::GetName() const {
+    return name;
 }
 
 int Student::GetGroup() const {
@@ -93,6 +99,11 @@ long long Student::NumberOfStudents() {
     return Student::AllStudents.size();
 }
 
+void Student::SetName(string name_) {
+    name = name_;
+    Student::FindStudent(id)->name = name_;
+}
+
 void Student::SetCourse(int course_) {
     course = course_;
     Student::FindStudent(id)->course = course_;
@@ -106,11 +117,15 @@ void Student::SetGroup(int group_) {
 vector<Student *> Student::GetAllStudents() {
     return AllStudents;
 }
-string Student::to_string() const{
+
+string Student::to_string() const {
     string s = "";
-    s += "ID: " + std :: to_string(id) + "\n";
-    s += "Credit Card Number: " + std :: to_string(credit_card_number) + "\n";
-    s += "Course: " + std :: to_string(course) + "\n";
-    s += "Group " + std :: to_string(group) + "\n";
+    s += "Name: ";
+    s += name;
+    s += '\n';
+    s += "ID: " + std::to_string(id) + "\n";
+    s += "Credit Card Number: " + std::to_string(credit_card_number) + "\n";
+    s += "Course: " + std::to_string(course) + "\n";
+    s += "Group " + std::to_string(group) + "\n";
     return s;
 }

@@ -13,31 +13,49 @@ protected:
 protected:
     StudentAfterSecondExaminationSeason();
 
+protected:
+
     void CreateNewStudentAfterSecondExaminationSeason(StudentAfterSecondExaminationSeason *student_);
 
     virtual StudentAfterSecondExaminationSeason *FindStudent(long long id_);
 
 public:
-    StudentAfterSecondExaminationSeason(int course_, int group_,
+    StudentAfterSecondExaminationSeason(string name_, int course_, int group_,
                                         const initializer_list<int> &first_examination_season_marks_,
                                         const initializer_list<int> &second_examination_season_marks_);
 
-    vector<int> GetSecondExaminationSeasonMarks() const;
-
     StudentAfterSecondExaminationSeason(const StudentAfterSecondExaminationSeason &student_);
 
-    virtual double AllMarksArithmeticMean();
-
+public:
     virtual void SetCourse(int course_);
 
     virtual void SetGroup(int group_);
+
+    virtual void SetName(string name_);
 
     virtual void SetFirstExaminationSeasonMarks(vector<int> marks_);
 
     void SetSecondExaminationSeasonMarks(vector<int> marks_);
 
-    static long long NumberOfStudentsAfterSecondExaminationSeason();
-    static vector<StudentAfterSecondExaminationSeason*> GetAllStudentAfterSecondExaminationSeason();
+    static vector<StudentAfterSecondExaminationSeason *> GetAllStudentAfterSecondExaminationSeason();
+
+    vector<int> GetSecondExaminationSeasonMarks() const;
+
+public:
+    virtual double AllMarksArithmeticMean();
+
     static double GetAllStudentsMarksArithmeticMeanAfterSecondExamenationSeason();
+
     static double GetGroupMarksArithmeticMeanAfterSecondExamenationSeason(int group);
+
+public:
+    static long long NumberOfStudentsAfterSecondExaminationSeason();
+
+public:
+    virtual string to_string() const;
+
+    friend std::ostream &operator<<(std::ostream &os, const StudentAfterSecondExaminationSeason &st) {
+        os << st.to_string();
+        return os;
+    }
 };

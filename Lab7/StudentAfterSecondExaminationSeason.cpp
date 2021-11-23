@@ -24,9 +24,10 @@ StudentAfterSecondExaminationSeason *StudentAfterSecondExaminationSeason::FindSt
 }
 
 StudentAfterSecondExaminationSeason::StudentAfterSecondExaminationSeason::StudentAfterSecondExaminationSeason(
-        int course_, int group_,
+        string name_, int course_, int group_,
         const initializer_list<int> &first_examination_season_marks_,
         const initializer_list<int> &second_examination_season_marks_) {
+    name = name_;
     course = course_;
     group = group_;
     id = GenerateID();
@@ -52,6 +53,7 @@ vector<int> StudentAfterSecondExaminationSeason::GetSecondExaminationSeasonMarks
 
 StudentAfterSecondExaminationSeason::StudentAfterSecondExaminationSeason(
         const StudentAfterSecondExaminationSeason &student_) {
+    name = student_.GetName();
     course = student_.GetCourse();
     group = student_.GetGroup();
     id = GenerateID();
@@ -72,6 +74,11 @@ double StudentAfterSecondExaminationSeason::AllMarksArithmeticMean() {
         result += i;
     }
     return result /= number_of_marks_after_second_examination_season;
+}
+
+void StudentAfterSecondExaminationSeason::SetName(string name_) {
+    StudentAfterFirstExaminationSeason::SetName(name_);
+    FindStudent(id)->name = name_;
 }
 
 void StudentAfterSecondExaminationSeason::SetCourse(int course_) {
@@ -108,7 +115,7 @@ double StudentAfterSecondExaminationSeason::GetAllStudentsMarksArithmeticMeanAft
     for (auto i: StudentAfterSecondExaminationSeason::AllStudentAfterSecondExaminationSeason) {
         sum += i->AllMarksArithmeticMean();
     }
-    if(StudentAfterSecondExaminationSeason::NumberOfStudentsAfterSecondExaminationSeason() != 0) {
+    if (StudentAfterSecondExaminationSeason::NumberOfStudentsAfterSecondExaminationSeason() != 0) {
         return sum / StudentAfterSecondExaminationSeason::NumberOfStudentsAfterSecondExaminationSeason();
     } else return -1;
 }
@@ -127,5 +134,27 @@ double StudentAfterSecondExaminationSeason::GetGroupMarksArithmeticMeanAfterSeco
     } else {
         return -1;
     }
+}
+
+string StudentAfterSecondExaminationSeason::to_string() const {
+    string s = "";
+    s += "Name: ";
+    s += name;
+    s += '\n';
+    s += "ID: " + std::to_string(id) + "\n";
+    s += "Credit Card Number: " + std::to_string(credit_card_number) + "\n";
+    s += "Course: " + std::to_string(course) + "\n";
+    s += "Group " + std::to_string(group) + "\n";
+    s += "Marks for first examination season: ";
+    for (auto i: first_examination_season_marks) {
+        s += std::to_string(i) + " ";
+    }
+    s += '\n';
+    s += "Marks for second examination season: ";
+    for (auto i: second_examination_season_marks) {
+        s += std::to_string(i) + " ";
+    }
+    s += '\n';
+    return s;
 }
 

@@ -14,8 +14,9 @@ void StudentAfterFirstExaminationSeason::CreateNewStudentAfterFirstExaminationSe
     AllStudentsAfterFirstExaminationSeason.push_back(student_);
 }
 
-StudentAfterFirstExaminationSeason::StudentAfterFirstExaminationSeason(int course_, int group_,
+StudentAfterFirstExaminationSeason::StudentAfterFirstExaminationSeason(string name_, int course_, int group_,
                                                                        const initializer_list<int> &first_examination_season_marks_) {
+    name = name_;
     course = course_;
     group = group_;
     id = GenerateID();
@@ -35,6 +36,7 @@ vector<int> StudentAfterFirstExaminationSeason::GetFirstExaminationSeasonMarks()
 
 StudentAfterFirstExaminationSeason::StudentAfterFirstExaminationSeason(
         const StudentAfterFirstExaminationSeason &student_) {
+    name = student_.GetName();
     course = student_.GetCourse();
     group = student_.GetGroup();
     id = GenerateID();
@@ -63,6 +65,11 @@ double StudentAfterFirstExaminationSeason::AllMarksArithmeticMean() const {
 
 long long StudentAfterFirstExaminationSeason::NumberOfAllStudentsAfterFirstExaminationSeason() {
     return AllStudentsAfterFirstExaminationSeason.size();
+}
+
+void StudentAfterFirstExaminationSeason::SetName(string name_) {
+    Student::SetName(name_);
+    StudentAfterFirstExaminationSeason::FindStudent(id)->name = name_;
 }
 
 void StudentAfterFirstExaminationSeason::SetCourse(int course_) {
@@ -107,4 +114,21 @@ double StudentAfterFirstExaminationSeason::GetGroupMarksArithmeticMeanAfterFirst
     if (n != 0) {
         return sum / n;
     } else return -1;
+}
+
+string StudentAfterFirstExaminationSeason::to_string() const {
+    string s = "";
+    s += "Name: ";
+    s += name;
+    s += '\n';
+    s += "ID: " + std::to_string(id) + "\n";
+    s += "Credit Card Number: " + std::to_string(credit_card_number) + "\n";
+    s += "Course: " + std::to_string(course) + "\n";
+    s += "Group " + std::to_string(group) + "\n";
+    s += "Marks for first session: ";
+    for (auto i: first_examination_season_marks) {
+        s += std::to_string(i) + " ";
+    }
+    s += '\n';
+    return s;
 }
