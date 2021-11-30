@@ -3,7 +3,7 @@ project(Lab7_with_GoogleTests)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Lab7_with_GoogleTests main.cpp Student.h Student.cpp StudentAfterFirstExaminationSeason.cpp StudentAfterFirstExaminationSeason.h StudentAfterSecondExaminationSeason.cpp StudentAfterSecondExaminationSeason.h)
+add_executable(Lab7_with_GoogleTests main.cpp Student.cpp Student.h StudentAfterFirstExaminationSeason.cpp StudentAfterFirstExaminationSeason.h StudentAfterSecondExaminationSeason.cpp StudentAfterSecondExaminationSeason.h)
 
 project(Google_tests)
 

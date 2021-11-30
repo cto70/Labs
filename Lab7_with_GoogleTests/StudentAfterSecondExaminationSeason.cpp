@@ -172,4 +172,3 @@ StudentAfterSecondExaminationSeason::~StudentAfterSecondExaminationSeason() {
     StudentAfterFirstExaminationSeason::remove(id);
     StudentAfterSecondExaminationSeason::remove(id);
 }
-
