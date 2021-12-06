@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/yarov/CLionProjects/StackOnArrays/Stack.h
+
+C:/Users/yarov/CLionProjects/StackOnArrays/main.cpp
+iostream
+-
+Stack.h
+C:/Users/yarov/CLionProjects/StackOnArrays/Stack.h
+
